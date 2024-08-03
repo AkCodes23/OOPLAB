@@ -1,7 +1,7 @@
 // TypeConversion.java
 import java.util.Scanner;
 
-public class TypeConversion {
+class TypeConversion {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
