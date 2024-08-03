@@ -1,7 +1,7 @@
 // AQ2.java
 import java.util.Scanner;
 
-public class AQ2 {
+class AQ2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
