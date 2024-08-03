@@ -1,5 +1,5 @@
 // AnalyzeOutputs.java
-public class AnalyzeOutputs {
+class AnalyzeOutputs {
     public static void main(String[] args) {
         // Case a
         int x = 10;
