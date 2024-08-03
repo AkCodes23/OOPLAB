@@ -1,7 +1,7 @@
 // BitwiseOperations.java
 import java.util.Scanner;
 
-public class BitwiseOperations {
+class BitwiseOperations {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
