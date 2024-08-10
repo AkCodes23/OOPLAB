@@ -10,11 +10,13 @@ class SearchArray {
         
         System.out.print("The value is found at locations: ");
         boolean found = false;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == searchValue) {
-                System.out.print("a[" + i + "] ");
+        int index = 0;
+        for (int value : a) {
+            if (value == searchValue) {
+                System.out.print("a[" + index + "] ");
                 found = true;
             }
+            index++;
         }
         
         if (!found) {
