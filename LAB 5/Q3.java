@@ -3,26 +3,26 @@ class Time {
     int minutes;
     int seconds;
 
-    // Constructor to initialize time to zero
+   
     Time() {
         hours = 0;
         minutes = 0;
         seconds = 0;
     }
 
-    // Constructor to initialize time to specific values
+    
     Time(int h, int m, int s) {
         hours = h;
         minutes = m;
         seconds = s;
     }
 
-    // Method to display time in hh:mm:ss format
+   
     void displayTime() {
         System.out.printf("%02d:%02d:%02d\n", hours, minutes, seconds);
     }
 
-    // Method to add two Time objects
+    
     Time add(Time t) {
         int totalSeconds = this.seconds + t.seconds;
         int totalMinutes = this.minutes + t.minutes + totalSeconds / 60;
