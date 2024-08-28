@@ -1,89 +1,80 @@
 class Account {
-    String customerName;
+    String name;
     int accNo;
-    String accountType;
+    String accType;
     double balance;
 
-    Account(String customerName, int accNo, String accountType) {
-        this.customerName = customerName;
+    Account(String name, int accNo, String accType, double balance) {
+        this.name = name;
         this.accNo = accNo;
-        this.accountType = accountType;
-        this.balance = 0.0;
+        this.accType = accType;
+        this.balance = balance;
     }
 
     void deposit(double amount) {
         balance += amount;
-        System.out.println("Deposit successful. Updated balance: " + balance);
     }
 
     void displayBalance() {
-        System.out.println("Current balance: " + balance);
+        System.out.println("Balance: " + balance);
+    }
+
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds.");
+        }
     }
 }
 
 class SavingsAccount extends Account {
-    double interestRate;
+    double interestRate = 0.04;
 
-    SavingsAccount(String customerName, int accNo) {
-        super(customerName, accNo, "Savings");
-        this.interestRate = 0.04; // 4% interest rate
+    SavingsAccount(String name, int accNo, double balance) {
+        super(name, accNo, "Savings", balance);
     }
 
     void computeAndDepositInterest() {
         double interest = balance * interestRate;
-        balance += interest;
-        System.out.println("Interest added. Updated balance: " + balance);
-    }
-
-    void withdraw(double amount) {
-        if (amount <= balance) {
-            balance -= amount;
-            System.out.println("Withdrawal successful. Updated balance: " + balance);
-        } else {
-            System.out.println("Insufficient balance!");
-        }
+        deposit(interest);
+        System.out.println("Interest added: " + interest);
     }
 }
 
 class CurrentAccount extends Account {
-    double minimumBalance;
+    double minBalance = 5000;
+    double serviceTax = 100;
 
-    CurrentAccount(String customerName, int accNo) {
-        super(customerName, accNo, "Current");
-        this.minimumBalance = 1000.0; // Minimum balance requirement
+    CurrentAccount(String name, int accNo, double balance) {
+        super(name, accNo, "Current", balance);
     }
 
-    void checkMinimumBalance() {
-        if (balance < minimumBalance) {
-            double penalty = 50.0; // Penalty for low balance
-            balance -= penalty;
-            System.out.println("Minimum balance not maintained. Penalty imposed. Updated balance: " + balance);
-        }
-    }
-
-    void withdraw(double amount) {
-        if (amount <= balance) {
-            balance -= amount;
-            checkMinimumBalance();
-            System.out.println("Withdrawal successful. Updated balance: " + balance);
-        } else {
-            System.out.println("Insufficient balance!");
+    void checkMinBalance() {
+        if (balance < minBalance) {
+            balance -= serviceTax;
+            System.out.println("Service tax imposed: " + serviceTax);
         }
     }
 }
 
-class BankDemo {
+public class BankApp {
     public static void main(String[] args) {
-        SavingsAccount savings = new SavingsAccount("Akhil", 12345);
-        CurrentAccount current = new CurrentAccount("HMM", 67890);
+        SavingsAccount sa = new SavingsAccount("Alice", 12345, 10000);
+        sa.deposit(2000);
+        sa.displayBalance();
+        sa.computeAndDepositInterest();
+        sa.displayBalance();
+        sa.withdraw(5000);
+        sa.displayBalance();
 
-        savings.deposit(2000);
-        savings.computeAndDepositInterest();
-        savings.withdraw(500);
-        savings.displayBalance();
-
-        current.deposit(500);
-        current.withdraw(200);
-        current.displayBalance();
+        CurrentAccount ca = new CurrentAccount("Bob", 67890, 4500);
+        ca.deposit(1500);
+        ca.displayBalance();
+        ca.checkMinBalance();
+        ca.withdraw(2000);
+        ca.displayBalance();
+        ca.checkMinBalance();
+        ca.displayBalance();
     }
 }
