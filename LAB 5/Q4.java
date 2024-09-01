@@ -11,7 +11,6 @@ class Complex {
         real = r;
         imaginary = i;
     }
-
     
     Complex add(int value) {
         return new Complex(real + value, imaginary);
@@ -22,11 +21,9 @@ class Complex {
         return new Complex(this.real + c.real, this.imaginary + c.imaginary);
     }
 
-   
     void display() {
         System.out.println(real + " + " + imaginary + "i");
     }
-
     public static void main(String[] args) {
         Complex c1 = new Complex(5, 7);
         Complex c2 = new Complex(3, 4);
