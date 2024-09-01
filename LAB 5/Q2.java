@@ -24,27 +24,27 @@ class Employee {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter name: ");
-        String name = scanner.nextLine();
+        String name = sc.nextLine();
 
         System.out.print("Enter city: ");
-        String city = scanner.nextLine();
+        String city = sc.nextLine();
 
         System.out.print("Enter b salary: ");
-        double bs = scanner.nextDouble();
+        double bs = sc.nextDouble();
 
         System.out.print("Enter DA percent: ");
-        double DA = scanner.nextDouble();
+        double DA = sc.nextDouble();
 
         System.out.print("Enter HRA percent: ");
-        double HRA = scanner.nextDouble();
+        double HRA = sc.nextDouble();
 
         Employee emp = new Employee();
         emp.getdata(name, city, bs, DA, HRA);
         emp.display();
 
-        scanner.close();
+        sc.close();
     }
 }
