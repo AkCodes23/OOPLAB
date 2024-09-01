@@ -3,20 +3,20 @@ import java.util.Scanner;
 class Employee {
     String name;
     String city;
-    double basicSalary;
-    double daPercent;
-    double hraPercent;
+    double bs;
+    double DA;
+    double HRA;
 
-    void getdata(String n, String c, double basic, double da, double hra) {
+    void getdata(String n, String c, double b, double da, double hra) {
         name = n;
         city = c;
-        basicSalary = basic;
-        daPercent = da;
-        hraPercent = hra;
+        bs = b;
+        DA = da;
+        HRA = hra;
     }
 
     double calculate() {
-        return basicSalary + (basicSalary * daPercent / 100) + (basicSalary * hraPercent / 100);
+        return bs + (bs * DA / 100) + (bs * HRA / 100);
     }
 
     void display() {
@@ -32,17 +32,17 @@ class Employee {
         System.out.print("Enter city: ");
         String city = scanner.nextLine();
 
-        System.out.print("Enter basic salary: ");
-        double basicSalary = scanner.nextDouble();
+        System.out.print("Enter b salary: ");
+        double bs = scanner.nextDouble();
 
         System.out.print("Enter DA percent: ");
-        double daPercent = scanner.nextDouble();
+        double DA = scanner.nextDouble();
 
         System.out.print("Enter HRA percent: ");
-        double hraPercent = scanner.nextDouble();
+        double HRA = scanner.nextDouble();
 
         Employee emp = new Employee();
-        emp.getdata(name, city, basicSalary, daPercent, hraPercent);
+        emp.getdata(name, city, bs, DA, HRA);
         emp.display();
 
         scanner.close();
