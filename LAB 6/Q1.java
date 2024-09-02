@@ -60,7 +60,7 @@ class CurrentAccount extends Account {
 
 public class BankApp {
     public static void main(String[] args) {
-        SavingsAccount sa = new SavingsAccount("Alice", 12345, 10000);
+        SavingsAccount sa = new SavingsAccount("Akhil", 12345, 10000);
         sa.deposit(2000);
         sa.displayBalance();
         sa.computeAndDepositInterest();
@@ -68,7 +68,7 @@ public class BankApp {
         sa.withdraw(5000);
         sa.displayBalance();
 
-        CurrentAccount ca = new CurrentAccount("Bob", 67890, 4500);
+        CurrentAccount ca = new CurrentAccount("Suraj", 67890, 4500);
         ca.deposit(1500);
         ca.displayBalance();
         ca.checkMinBalance();
