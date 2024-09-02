@@ -49,7 +49,7 @@ public class StudentApp {
         UGStudent ug1 = new UGStudent("UG001", "Akhil", 18, 1, 50000);
         UGStudent ug2 = new UGStudent("UG002", "Suraj", 19, 2, 55000);
         PGStudent pg1 = new PGStudent("PG001", "anant", 22, 1, 75000);
-        PGStudent pg2 = new PGStudent("PG002", "noclue", 23, 2, 80000);
+        PGStudent pg2 = new PGStudent("PG002", "Saurabh", 23, 2, 80000);
 
         System.out.println("UG Students:");
         ug1.display();
