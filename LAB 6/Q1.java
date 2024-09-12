@@ -27,7 +27,6 @@ class Account {
         }
     }
 }
-
 class SavingsAccount extends Account {
     double interestRate = 0.04;
 
