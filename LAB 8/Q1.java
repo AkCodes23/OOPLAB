@@ -1,49 +1,56 @@
 interface Item {
-    String getCategory();
-    String getManufacturer();
-    double getSales(String startDate, String endDate);
+    double getTotalSales();
 }
 
 class Hardware implements Item {
-    private String category;
-    private String manufacturer;
+    String category;
+    String manufacturer;
+    double[] sales;
 
-    public Hardware(String category, String manufacturer) {
+    public Hardware(String category, String manufacturer, double[] sales) {
         this.category = category;
         this.manufacturer = manufacturer;
+        this.sales = sales;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public double getSales(String startDate, String endDate) {
-        return 0.0;
+    public double getTotalSales() {
+        double total = 0;
+        for (double sale : sales) {
+            total += sale;
+        }
+        return total;
     }
 }
 
 class Software implements Item {
-    private String type;
-    private String operatingSystem;
+    String type;
+    String operatingSystem;
+    double[] sales;
 
-    public Software(String type, String operatingSystem) {
+    public Software(String type, String operatingSystem, double[] sales) {
         this.type = type;
         this.operatingSystem = operatingSystem;
+        this.sales = sales;
     }
 
-    public String getCategory() {
-        return "Software";
+    public double getTotalSales() {
+        double total = 0;
+        for (double sale : sales) {
+            total += sale;
+        }
+        return total;
     }
+}
 
-    public String getManufacturer() {
-        return "N/A";
-    }
+class Main {
+    public static void main(String[] args) {
+        double[] hardwareSales = {1000, 1500, 1200};
+        double[] softwareSales = {2000, 2500, 2300};
 
-    public double getSales(String startDate, String endDate) {
-        return 0.0;
+        Hardware hardware = new Hardware("Laptop", "Dell", hardwareSales);
+        Software software = new Software("Antivirus", "Windows", softwareSales);
+
+        System.out.println("Total hardware sales for last 3 months: " + hardware.getTotalSales());
+        System.out.println("Total software sales for last 3 months: " + software.getTotalSales());
     }
 }
