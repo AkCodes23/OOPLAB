@@ -3,32 +3,32 @@ abstract class Shape {
 }
 
 class Rectangle extends Shape {
-    private double length;
-    private double width;
+     double length;
+     double width;
 
-    public Rectangle(double length, double width) {
+     Rectangle(double length, double width) {
         this.length = length;
         this.width = width;
     }
 
-    public double getArea() {
+     double getArea() {
         return length * width;
     }
 }
 
 class Circle extends Shape {
-    private double radius;
+     double radius;
 
-    public Circle(double radius) {
+     Circle(double radius) {
         this.radius = radius;
     }
 
-    public double getArea() {
+     double getArea() {
         return Math.PI * radius * radius;
     }
 }
 
-public class AreaCalculator {
+class AreaCalculator {
     public static void main(String[] args) {
         Rectangle rectangle = new Rectangle(5, 10);
         Circle circle = new Circle(7);
