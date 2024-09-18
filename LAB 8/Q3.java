@@ -1,35 +1,35 @@
-interface Shape {
+interface Shape {private
     double area();
 }
 
 class Rectangle implements Shape {
-    private double length;
-    private double width;
+     double length;
+     double width;
 
-    public Rectangle(double length, double width) {
+     Rectangle(double length, double width) {
         this.length = length;
         this.width = width;
     }
 
-    public double area() {
+     double area() {
         return length * width;
     }
 }
 
 class Circle implements Shape {
-    private double radius;
+     double radius;
 
-    public Circle(double radius) {
+     Circle(double radius) {
         this.radius = radius;
     }
 
-    public double area() {
+     double area() {
         return Math.PI * radius * radius;
     }
 }
 
-public class AreaCalculator {
-    public static void main(String[] args) {
+class AreaCalculator {
+     public static void main(String[] args) {
         Shape rectangle = new Rectangle(5, 10);
         Shape circle = new Circle(7);
 
