@@ -43,13 +43,20 @@ class BookOrderThread extends Thread {
             int orderId = orderIdGenerator++;
             int totalCost = orderedQuantity * warehouse.unitCost;
             warehouse.quantity -= orderedQuantity;
-            orderList.add(new Order(orderedQuantity, orderId, new Date().toString()));
+
+            
+            int i = 0;
+            while (i < orderList.size() && orderList.get(i).date.compareTo(new Date().toString()) < 0) {
+                i++;
+            }
+            orderList.add(i, new Order(orderedQuantity, orderId, new Date().toString()));
+
             System.out.println("Order Placed: " + orderId + ", " + warehouse.productId + ", " + orderedQuantity + ", " + totalCost);
         }
     }
 }
 
-class WarehouseManagement {
+public class WarehouseManagement {
     public static void main(String[] args) {
         Warehouse warehouse = new Warehouse("P123", 100, 10);
         int orderIdGenerator = 1;
@@ -71,7 +78,6 @@ class WarehouseManagement {
             e.printStackTrace();
         }
 
-        Collections.sort(orderList, Comparator.comparing(Order::getDate));
         System.out.println("\nSorted Order Details:");
         for (Order order : orderList) {
             System.out.println("OrderID: " + order.orderId + ", ProductID: " + warehouse.productId + ", Quantity: " + order.orderedQuantity + ", Date: " + order.date);
