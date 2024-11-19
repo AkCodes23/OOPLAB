@@ -1,4 +1,4 @@
-interface Shape {private
+interface Shape {
     double area();
 }
 
